@@ -1,0 +1,66 @@
+\documentclass[]{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+%opening
+\title{CSC373 Week 4 Tutorial}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+\section{Fibonacci Sequence}
+How to calculate the n'th value in the Fibonacci Sequence? \\
+Recursive version: 
+\lstset{language=Python,
+	basicstyle=\ttfamily\scriptsize,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{green}\ttfamily,
+	breaklines=true,
+	numbers=left
+}
+\begin{lstlisting}
+def fib1(n):
+	if n<=1:
+		return n
+	return fib1(n-2) + fib1(n-1)
+\end{lstlisting}
+
+Trace the recursive calls of $fib1(6)$. \\
+\[ fib1(6) = fib1(5) + fib1(4)\]
+\[= 2*fib1(4) + fib1(3)\]
+\[= 3*fib(3) + 2*fib(2)\]
+...
+There are many duplicate fib1 calls which wastes time/power. How can we avoid recalculating information?\\
+Dynamic Programming!\\
+Create bottom-up approach instead of top-down to save previous fib1 calls.
+
+\begin{lstlisting}
+def fib2(n):
+memo = [0,1]
+while n < len(memo):
+	memo.append(memo[-1]+memo[-2])
+return memo[n]
+\end{lstlisting}
+
+% Maybe run this on your computer to show the massive difference. High values of n take too long on fib1 and can cause immediate max recursion depth where dynamic will give ~immediate answers spanning several pages of digits. It really is quite amazing and would recommend doing this.
+
+%\section{Max Sub-array Problem}
+%Given an array of numbers, find the subarray that has the largest sum. \\
+%Set up is similar to class: \\
+%$MSP(X,Y)$ is the maximum subarray where the first 
+
+\section{Binary strings - No consecutive 1s}
+Given, $n$, find the number of binary strings of size $n$ that have no consecutive 1s.\\
+Let $a[i]$ represent the number of binary strings of length $i$ that end with a $0$. Let $b[i]$ represent the number of binary strings of length $i$ that end with a $1$.\\
+\[a[i] = a[i-1] + b[i-1] \]
+\[b[i] = a[i-1]\]
+%http://courses.csail.mit.edu/6.006/oldquizzes/solutions/q2-f2009-sol.pdf
+
+
+
+\end{document}

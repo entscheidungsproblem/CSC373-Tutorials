@@ -1,0 +1,26 @@
+\documentclass[]{article}
+
+
+\begin{document}
+
+\section{Bad Coin Proof}
+Redo the proof from last week with a different coin set. Use $\{ 1, 6, 10 \}$. \\ \\
+Simple counterproof:\\12: A*=$6 , 6$, A=$10, 1, 1$ \\ \\
+
+%Show that our proof from last week won't work since we can swap coins to reduce the number of coins used. Ex. A* and A agree upto $k$ The next element added to A, $l$, is not in A*. Using our example above $l=1$ (the second penny added), and A* removes $10, 1$ and adds $6, 6$.
+
+
+\section{Minimum Spanning Tree - Prim's Algorithm}
+Remember that the graph implementation affects the runtime. Start with AdjacencyMatrix then try AdjacencyList. 
+\\ \\
+
+Using AL: 
+\begin{enumerate}
+	\item If we were to run Prims algorithm on a DAG (directed acyclic graph), where the first selected node (source) is the root of the DAG (connected to every other node), would the runtime change? \\ \\
+	%\textit{No, since all edges considered are still outgoing edges. Finding edges takes O(n)}
+	\item What if the source can be reached by every other node? If we ran Prims, and only considered adding edges that enter a discovered node, would the runtime change? (In other words, this is the same as above but all the directed edges are reversed and Prim's searches backwards from the same source.) \\ \\ %\textit{Yes, since there is no easy way to check for all incoming edges to a node in AdjacencyList. Finding edges takes $O(n^2)$}
+	\item What if we used a different graph implementation? \\ \\
+	%\textit{AdjacencyMatrix provides quick assess to incoming edges. Takes O(n)}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass[pdf]{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{hyperref}
+%opening
+\title{}
+\author{}
+
+\begin{document}
+
+\section{Quick Lecture Recap}
+Go over the scheduling problem proof again.
+\section{Making Change}
+You have an unlimited supply of 1c, 5c, 10c and 25c coins, and you want to make change for $C$ cents using as few coins as possible.\\ \\
+\href{http://cse.unl.edu/~choueiry/S06-235/files/Algorithms.pdf}{Coin exchange}
+\subsection*{a)}
+Create a greedy algorithm and prove that it produces an optimal solution.
+\subsection*{b)}
+Is the algorithm optimal if the available coins are: 1c, 5c, 10c and 26c. %\\ \\ \textit{No. Counterexample 50c. Greedy: 26c 10c 10c 1c 1c 1c 1c. OPT: 10c 10c 10c 10c 10c}
+\subsection*{c)}
+Is the algorithm optimal if the available coins are: 1c, 5c, and 25c. %\\ \\ \textit{Yes. The proof is same as 2a. Hopefully this helps get them thinking about 2d.} 
+\subsection*{d)}
+The algorithm is sometimes optimal depending on the available coins. Name 1 type of coins that allow for an optimal solution? \\ \\ \textit{Powers. Example, $2^n$:  1, 2, 4, 8 ...}
+
+\section{Minimum Spanning Tree - Prim's Algorithm}
+Review Prim's algorithm. 
+
+\href{http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/11-Graph/prim2.html}{Prims Algorithm}
+
+\href{https://visualgo.net/en/mst}{Algorithm Visualization}
+
+\section{Extra - Not required content!}
+Some students were asking questions about how we could describe ALL sets of coins that produce an optimal solution. We found that powers are a good example of coins that work, but there are more. Example: 1, 5, 10\\
+This is a difficult problem but recent research (up to 2004) has yielded interesting results.\\
+\href{http://dl.acm.org/citation.cfm?id=321567}{[Chang and Gill]} proved that for a set of coins, where $N$ is the largest coin, if there are no counterexamples where the input value, $V$ is $1 \leq V \leq N^3$.\\
+\href{http://dl.acm.org/citation.cfm?id=2309414}{[David Pearson]} found an algorithm that checks if a set of coins is "canonical" (always produces an optimal solution using our greedy algorithm) in $O(n^3)$.
+
+\end{document}
